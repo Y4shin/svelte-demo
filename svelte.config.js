@@ -10,6 +10,9 @@ const config = {
     }),
 
     kit: {
+        prerender: {
+            default: true
+        },
         vite: { ssr: { noExternal: ['@popperjs/core'] } },
         adapter: adapter()
     }
