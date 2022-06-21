@@ -6,15 +6,23 @@ const config = {
     // Consult https://github.com/sveltejs/svelte-preprocess
     // for more information about preprocessors
     preprocess: preprocess({
-        postcss: true,
+        postcss: true
     }),
 
     kit: {
         prerender: {
             default: true
         },
-        vite: { ssr: { noExternal: ['@popperjs/core'] } },
-        adapter: adapter()
+        vite: {
+            plugins: [],
+            ssr: { noExternal: ['@popperjs/core'] }
+        },
+        adapter: adapter({
+            // default options are shown
+            pages: 'build',
+            assets: 'build',
+            fallback: null
+        })
     }
 };
 

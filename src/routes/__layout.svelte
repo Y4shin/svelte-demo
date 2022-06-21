@@ -2,7 +2,6 @@
     import Navbar from "$lib/components/navbar.svelte";
     import { onMount } from "svelte";
     import { darkmode } from "$lib/stores";
-    import "agnostic-svelte/css/common.min.css"
     import "$lib/app.css";
     import { browser } from '$app/env';
     onMount(async () => {
@@ -20,6 +19,7 @@
 </script>
 
 <svelte:head>
+    <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content={darkMode ? "#4b5563": "#e5e7eb"}>
     <link rel="apple-touch-icon" href="dei.png">
 </svelte:head>
