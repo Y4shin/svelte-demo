@@ -2,7 +2,7 @@
     "name": "DEI LernApp",
     "short_name": "DEI LernApp",
     "background_color": "#4b5563",
-    "theme_color": "#312e81",
+    "theme_color": "#ede9fe",
     "display": "standalone",
     "start_url": "/",
     "icons": [{
