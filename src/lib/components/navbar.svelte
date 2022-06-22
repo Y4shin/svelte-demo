@@ -31,7 +31,7 @@
 </script>
 
 <nav
-  class="flex items-center justify-between flex-wrap dark:bg-indigo-900 bg-indigo-100 p-3 navbar"
+  class="flex items-center justify-between flex-wrap dark:bg-indigo-900 bg-indigo-300 p-3 navbar"
 >
   <div class="flex items-center flex-shrink-0 dark:text-gray-200 text-gray-600 mr-6">
     <img src="dei.png" alt="DEI" class="dei-logo" />
@@ -42,7 +42,7 @@
   </div>
   <div class="block lg:hidden">
     <button
-      class="flex items-center px-3 py-2 rounded dark:text-gray-200 dark:border-gray-200 dark:bg-indigo-900 dark:hover:text-white dark:hover:border-white text-gray-600 border-gray-600 bg-indigo-100 hover:text-black hover:border-black"
+      class="flex items-center px-3 py-2 rounded dark:text-gray-200 dark:border-gray-200 dark:bg-indigo-900 dark:hover:text-white dark:hover:border-white text-gray-600 border-gray-600 bg-indigo-300 hover:text-black hover:border-black"
       on:click={toggleOpen}
     >
       <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +68,7 @@
       <a
         href="/courses"
         class="block mt-4 lg:inline-block lg:mt-0 {$page.routeId === 'courses'
-          ? 'dark:hover:text-white text-indigo-400 hover:text-black'
+          ? 'dark:hover:text-white text-gray-100 dark:text-gray-400 hover:text-black'
           : 'dark:text-gray-200 dark:hover:text-white text-gray-600 hover:text-black'} mr-4"
       >
         Kurse

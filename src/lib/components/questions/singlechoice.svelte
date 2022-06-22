@@ -23,32 +23,21 @@
     }) as answer}
       <div class="col-span-1 p-4">
         <Box>
-            <input
-              class="form-check-input float-left align-center appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-indigo-600 checked:border-indigo-600 focus:outline-none transition duration-200 bg-no-repeat cursor-pointer"
-              type="radio"
-              bind:group={currentChoice}
-              name="currentChoice"
-              value={answer.ind}
-            />
-          <div class="col-span-5 question"><Text text={answer.val} /></div>
-    </Box>
+          <div class="grid grid-cols-6 place-items-center">
+            <div class="col-span-1 justify-center">
+              <input
+                type="radio"
+                class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-200 bg-gray-200 checked:bg-indigo-900 checked:border-indigo-900 dark:checked:bg-indigo-600 dark:checked:border-indigo-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                bind:group={currentChoice}
+                name="currentChoice"
+                value={answer.ind}
+              />
+            </div>
+            <div class="col-span-5"><Text text={answer.val} equationInline={true} /></div>
+          </div>
+        </Box>
       </div>
     {/each}
   </div>
+  <Box><p class="font-normal text-gray-700 dark:text-gray-400" style="text-align: center;">Die aktuell ausgewaehlte Antwort ist: {currentChoice}</p></Box>
 </Box>
-
-<style>
-  .radio-t {
-    justify-self:center;
-    text-align: center;
-    vertical-align: middle;
-  }
-
-  .question-box {
-    text-align: center;
-  }
-
-  .question {
-    vertical-align: middle;
-  }
-</style>
