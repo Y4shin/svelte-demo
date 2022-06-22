@@ -22,10 +22,12 @@
       return { val, ind };
     }) as answer}
       <div class="col-span-1 p-4">
+        <label for={`answer-${answer.ind}`}>
         <Box>
           <div class="grid grid-cols-6 place-items-center">
             <div class="col-span-1 justify-center">
               <input
+                id={`answer-${answer.ind}`}
                 type="radio"
                 class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-200 bg-gray-200 checked:bg-indigo-900 checked:border-indigo-900 dark:checked:bg-indigo-600 dark:checked:border-indigo-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                 bind:group={currentChoice}
@@ -36,8 +38,9 @@
             <div class="col-span-5"><Text text={answer.val} equationInline={true} /></div>
           </div>
         </Box>
+      </label>
       </div>
     {/each}
   </div>
-  <Box><p class="font-normal text-gray-700 dark:text-gray-400" style="text-align: center;">Die aktuell ausgewaehlte Antwort ist: {currentChoice}</p></Box>
+  <Box><p class="font-normal text-gray-700 dark:text-gray-400" style="text-align: center;">Die aktuell ausgewaehlte Antwort ist: {currentChoice === question.correctAnswer ? "korrekt" : "falsch"}</p></Box>
 </Box>
