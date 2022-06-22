@@ -3,6 +3,8 @@
   import { onMount } from 'svelte';
   import SingleChoiceQuestionComponent from '$lib/components/questions/singlechoice.svelte';
   import {
+    AssistanceType,
+    QuestionConfig,
     SingleChoiceQuestion,
     TextComponent,
     TextType,
@@ -22,7 +24,8 @@
       createEquation('\\frac{8}{2}'),
       createEquation('\\frac{10}{2}')
     ],
-    0
+    0,
+    new QuestionConfig(true, true, AssistanceType.Solution)
   );
 
   let darkMode: boolean;
@@ -39,15 +42,15 @@
 </svelte:head>
 
 <div class="p-4 m-4">
-  <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 lg:gap-8">
+  <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 lg:gap-8 mb-8">
     <div class="col-span-1" />
     <div
-      class="col-span-4 p-4 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
+      class="col-span-4 p-4 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 transition-all duration-500"
     >
-      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white transition-all duration-500">
         Dies ist die Kursübersicht!
       </h5>
-      <p class="font-normal text-gray-700 dark:text-gray-400">
+      <p class="font-normal text-gray-700 dark:text-gray-400 transition-all duration-500">
         Hier werden normalerweise alle Kurse angezeigt. Zurzeit wird ein Fragentyp demonstriert.
       </p>
     </div>

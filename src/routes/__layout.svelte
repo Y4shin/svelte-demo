@@ -29,7 +29,8 @@
     <link rel="apple-touch-icon" href="dei.png">
 </svelte:head>
 
-
+<div class="transition-all duration-500">
 <Navbar bind:darkMode/>
 
 <slot/>
+</div>
