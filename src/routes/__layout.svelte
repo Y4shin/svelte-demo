@@ -3,12 +3,17 @@
     import { onMount } from "svelte";
     import { darkmode } from "$lib/stores";
     import "$lib/app.css";
-    import { browser } from '$app/env';
+	import { browser, dev } from '$app/env'
+	const date = '__DATE__'
+	const enableSwDev = '__SW_DEV__'
     onMount(async () => {
         darkmode.subscribe(val => {
             darkMode = val;
         });
     });
+
+
+	const enableManifest = (!dev && browser) || (dev && browser && enableSwDev === 'true')
 
     
     let darkMode: boolean;
