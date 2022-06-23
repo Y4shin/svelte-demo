@@ -1,13 +1,10 @@
 <script lang="ts">
   import { AssistanceType, QuestionConfig, type SingleChoiceQuestion, Text } from '$lib/questions';
   import IoIosArrowForward from 'svelte-icons/io/IoIosArrowForward.svelte';
-  import IoIosArrowBack from 'svelte-icons/io/IoIosArrowBack.svelte';
-  import IoIosCheckmark from 'svelte-icons/io/IoIosCheckmark.svelte'
   import TextComp from '$lib/components/text.svelte';
   import Box from '$lib/components/box.svelte';
-  import Katex from '$lib/components/katex.svelte';
-  import { validate_component } from 'svelte/internal';
-  import { onMount } from 'svelte';
+	import Body from "$lib/components/accordion/body.svelte";
+	import Item from "$lib/components/accordion/item.svelte";
 
   import Modal from '$lib/components/modal.svelte';
 
@@ -15,34 +12,11 @@
   const handleToggleModal = () => {
     showModal = !showModal;
   };
-  const questionBgColors = {
-    regular: {
-      light: 'white',
-      dark: 'gray-800'
-    },
-    incorrect: {
-      light: 'red-100',
-      dark: 'red-800'
-    },
-    correct: {
-      light: 'green-100',
-      dark: 'green-800'
-    }
-  };
 
-  function toggleBgCol() {
-    if (bgcol === 'white') {
-      bgcol = 'gray-200';
-    } else {
-      bgcol = 'white';
-    }
-  }
-
-  let bgcol = 'white';
   let previewSolution: boolean = false;
   let showSolution: boolean = false;
   export let question: SingleChoiceQuestion;
-  let answers: [Text, number][] = question.answers.map((val, ind) => [val, ind]);
+  let answers: [[Text, Text?], number][] = question.answers.map((val, ind) => [val, ind]);
 
   function submitQuestion() {
     showSolution = !showSolution;
@@ -56,32 +30,41 @@
 </script>
 
 <Box>
-  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+  <h5 class="mb-2 text-2xl font-bold tracking-tight text-t-reg-lgt-hgl dark:text-t-reg-drk-hgl">
     {question.title}
   </h5>
   {#each question.question as par}
-    <p class="font-normal text-gray-700 dark:text-gray-400"><TextComp text={par} /></p>
+    <p class="font-normal text-t-reg-lgt dark:text-t-reg-drk"><TextComp text={par} /></p>
   {/each}
   <div
-    class="p-4 grid grid-cols-1 md:grid-cols-2 form-check font-normal text-gray-700 dark:text-gray-400"
+    class="p-4 grid grid-cols-1 md:grid-cols-2 form-check font-normal text-t-reg-lgt dark:text-t-reg-drk"
   >
     {#each answers as answer}
       <div class="col-span-1 p-4">
         <label for={`answer-${answer[1]}`}>
-          <Box>
+          <Box bg="p-pri-lgt-hgl" bgDark="p-pri-drk-hgl">
             <div class="grid grid-cols-6 place-items-center">
               <div class="col-span-1 justify-center">
                 <input
                   id={`answer-${answer[1]}`}
                   type="radio"
-                  class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-200 bg-gray-200 checked:bg-indigo-900 checked:border-indigo-900 dark:checked:bg-indigo-600 dark:checked:border-indigo-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                  class="form-check-input appearance-none rounded-full h-4 w-4 border border-p-pri-lgt-bdr dark:border-p-pri-drk-bdr checked:bg-p-acc-lgt dark:checked:bg-p-acc-drk checked:border-p-acc-lgt-bdr dark:checked:border-p-acc-drk-bdr focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                   bind:group={currentChoice}
                   name="currentChoice"
                   value={answer[1]}
                 />
               </div>
-              <div class="col-span-5"><TextComp text={answer[0]} equationInline={true} /></div>
+              <div class="col-span-5"><TextComp text={answer[0][0]} equationInline={true} /></div>
             </div>
+            {#if question.config.showDetails && answer[0][1] !== undefined}
+            <div class="m-4">
+            <Body>
+              <Item id="0" title="Hinweis">
+                <p><TextComp text={answer[0][1]}/></p>
+              </Item>
+            </Body>
+          </div>
+            {/if}
           </Box>
         </label>
       </div>
@@ -91,7 +74,7 @@
     <div class="col-span-1 m-4">
       <button
         on:click={submitQuestion}
-        class="dark:hover:bg-indigo-900 hover:bg-indigo-500 dark:bg-indigo-700 bg-indigo-300 text-gray-900 dark:text-white font-bold py-2 px-4 rounded-full h-10"
+        class="dark:hover:bg-p-acc-drk-hgl hover:bg-p-acc-lgt-hgl dark:bg-p-acc-drk bg-p-acc-lgt text-t-reg-lgt-hgl dark:text-t-reg-drk-hgl font-bold py-2 px-4 rounded-full h-10"
         >Absenden</button
       >
     </div>
@@ -99,22 +82,22 @@
       {#if question.config.assistance === AssistanceType.Solution}
         <button
           on:click={toggleSolutionPreview}
-          class="dark:hover:bg-indigo-900 hover:bg-indigo-500 dark:bg-indigo-700 bg-indigo-300 text-gray-900 dark:text-white font-bold py-2 px-4 rounded-full h-10"
+          class="dark:hover:bg-p-acc-drk-hgl hover:bg-p-acc-lgt-hgl dark:bg-p-acc-drk bg-p-acc-lgt text-t-reg-lgt-hgl dark:text-t-reg-drk-hgl font-bold py-2 px-4 rounded-full h-10"
           >Lösung</button
         >
       {:else if question.config.assistance === AssistanceType.Hint}
         <button
-          class="dark:hover:bg-indigo-900 hover:bg-indigo-500 dark:bg-indigo-700 bg-indigo-300 text-gray-900 dark:text-white font-bold py-2 px-4 rounded-full h-10"
+          class="dark:hover:bg-p-acc-drk-hgl hover:bg-p-acc-lgt-hgl dark:bg-p-acc-drk bg-p-acc-lgt text-t-reg-lgt-hgl dark:text-t-reg-drk-hgl font-bold py-2 px-4 rounded-full h-10"
           >Hinweis</button
         >
       {/if}
     </div>
     <div class="col-span-1 m-4">
       <button
-        class="h-10 dark:hover:bg-indigo-900 hover:bg-indigo-500 dark:bg-indigo-700 bg-indigo-300 text-gray-900 dark:text-white font-bold py-2 px-4 rounded-full"
+        class="h-10 dark:hover:bg-p-acc-drk-hgl hover:bg-p-acc-lgt-hgl dark:bg-p-acc-drk bg-p-acc-lgt text-t-reg-lgt-hgl dark:text-t-reg-drk-hgl font-bold py-2 px-4 rounded-full"
         >◀</button
       ><button
-        class="h-10 dark:hover:bg-indigo-900 hover:bg-indigo-500 dark:bg-indigo-700 bg-indigo-300 text-gray-900 dark:text-white font-bold py-2 px-4 rounded-full ml-4"
+        class="h-10 dark:hover:bg-p-acc-drk-hgl hover:bg-p-acc-lgt-hgl dark:bg-p-acc-drk bg-p-acc-lgt text-t-reg-lgt-hgl dark:text-t-reg-drk-hgl font-bold py-2 px-4 rounded-full ml-4"
         >▶</button
       >
     </div>
@@ -130,7 +113,7 @@
         <div class="col-span-1 p-4">
             
             <Box><div class="grid grid-cols-6 place-items-center">
-                <div class="col-span-5"><TextComp text={answer[0]} equationInline={true} /></div>
+                <div class="col-span-5"><TextComp text={answer[0][0]} equationInline={true} /></div>
                 <div class="col-span-1 justify-center">{#if answer[1] === question.correctAnswer}<div class="text-lg text-emerald-600 dark:text-emerald-400 font-extrabold">✓</div>{:else}<div class="text-lg text-red-600 dark:text-red-400 font-extrabold">✘</div>{/if}</div>
               </div>
             </Box>
@@ -148,8 +131,8 @@
         <div class="col-span-1 p-4">
             
             <Box><div class="grid grid-cols-6 place-items-center">
-                <div class="col-span-5"><TextComp text={answer[0]} equationInline={true} /></div>
-                <div class="col-span-1 justify-center">{#if answer[1] === question.correctAnswer}<div class="text-lg text-emerald-600 dark:text-emerald-400 font-extrabold">✓</div>{:else if answer[1] === currentChoice}<div class="text-lg text-red-600 dark:text-red-400 font-extrabold">✘</div>{/if}</div>
+                <div class="col-span-5"><TextComp text={answer[0][0]} equationInline={true} /></div>
+                <div class="col-span-1 justify-center">{#if answer[1] === question.correctAnswer}<div class="text-lg text-t-suc-lgt dark:text-t-suc-drk font-extrabold">✓</div>{:else if answer[1] === currentChoice}<div class="text-lg text-t-fal-lgt dark:text-t-fal-drk font-extrabold">✘</div>{/if}</div>
               </div>
             </Box>
         </div>
@@ -159,8 +142,8 @@
       <div>
         <button
           on:click={submitQuestion}
-          class="dark:hover:bg-indigo-900 hover:bg-indigo-500 dark:bg-indigo-700 bg-indigo-300 text-gray-900 dark:text-white font-bold py-2 px-4 rounded-full ml-4 h-10"
-          ><IoIosArrowForward /></button
+          class="h-10 dark:hover:bg-p-acc-drk-hgl hover:bg-p-acc-lgt-hgl dark:bg-p-acc-drk bg-p-acc-lgt text-t-reg-lgt-hgl dark:text-t-reg-drk-hgl font-bold py-2 px-4 rounded-full ml-4 h-10"
+          >▶</button
         >
       </div>
     </div>

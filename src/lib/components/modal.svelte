@@ -10,19 +10,19 @@
 
   <div
     
-    class="modal {open ? '' : 'hidden'} z-50 fixed w-full h-full top-0 left-0 flex items-center justify-center p-8 lg:p-0 transition-all duration-500"
+    class="modal {open ? '' : 'hidden'} z-50 fixed w-full h-full top-0 left-0 flex items-center justify-center p-8 lg:p-0"
   >
-    <div class="modal-overlay fixed w-full h-full bg-gray-900 opacity-50 transition-all duration-500" />
+    <div class="modal-overlay fixed w-full h-full bg-black opacity-50 transition-all duration-300" />
     <div transition:fly="{animate ? {y:200,duration:600} : {y:0,duration:0}}"
-      class="text-gray-700 dark:text-gray-300 dark:bg-gray-600 bg-gray-200 w-full lg:h-max lg:w-1/2  mx-auto rounded-lg shadow-xl z-50 overflow-y-auto transition-all duration-500"
+      class="text-t-reg-lgt dark:text-t-reg-drk dark:bg-p-pri-drk bg-p-pri-lgt w-full lg:h-max lg:w-1/2  mx-auto rounded-lg shadow-xl z-50 overflow-y-auto transition-all duration-300"
     >
       <div
-        class="flex justify-between items-center head bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-400 py-5 px-8 text-2xl font-extrabold dark:text-gray-300 transition-all duration-500"
+        class="flex justify-between items-center head bg-p-acc dark:bg-p-acc-drk text-t-reg-lgt dark:text-t-reg-drk py-5 px-8 text-2xl font-extrabold transition-all duration-300"
       >
         {title}
         {#if showCloseButton}
         <button
-          class="p-2 bg-gray-200 hover:bg-gray-300 rounded-full ml-4 transition-all duration-500"
+          class="p-2 bg-p-pri-lgt hover:bg-p-pri-lgt-hgl dark:bg-p-pri-drk dark:hover:bg-p-pri-drk-hgl rounded-full ml-4 transition-all duration-500"
           on:click={() => dispatch('close')}
         >
           <svg
@@ -38,7 +38,7 @@
         </button>
         {/if}
       </div>
-      <div class="content p-8">
+      <div class="content bg-p-bgr-lgt dark:bg-p-bgr-drk p-8">
         <slot name="body" />
       </div>
     </div>

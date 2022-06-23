@@ -19,8 +19,8 @@
     let darkMode: boolean;
     
     $: if (browser) document.body.classList.toggle("dark", darkMode);
-    $: if (browser) document.body.classList.toggle("bg-gray-600", darkMode);
-    $: if (browser) document.body.classList.toggle("bg-gray-200", !darkMode);
+    $: if (browser) document.body.classList.toggle("bg-p-bgr-drk", darkMode);
+    $: if (browser) document.body.classList.toggle("bg-p-bgr", !darkMode);
 </script>
 
 <svelte:head>
@@ -29,8 +29,6 @@
     <link rel="apple-touch-icon" href="dei.png">
 </svelte:head>
 
-<div class="transition-all duration-500">
-<Navbar bind:darkMode/>
 
+<Navbar bind:darkMode/>
 <slot/>
-</div>

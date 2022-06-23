@@ -56,11 +56,11 @@ export class QuestionConfig {
 export class SingleChoiceQuestion {
     title: string;
     question: Text[];
-    answers: Text[];
+    answers: [Text, Text?][];
     correctAnswer: number;
     config: QuestionConfig;
 
-    constructor(title: string, question: Text[], answers: Text[], correctAnswer: number, config: QuestionConfig) {
+    constructor(title: string, question: Text[], answers: [Text, Text?][], correctAnswer: number, config: QuestionConfig) {
         this.title = title;
         this.question = question;
         this.answers = answers;
