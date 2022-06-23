@@ -30,9 +30,9 @@
 </script>
 
 <Box>
-  <h5 class="mb-2 text-2xl font-bold tracking-tight text-t-reg-lgt-hgl dark:text-t-reg-drk-hgl">
+  <h4 class="mb-2 text-2xl font-bold tracking-tight text-t-reg-lgt-hgl dark:text-t-reg-drk-hgl">
     {question.title}
-  </h5>
+  </h4>
   {#each question.question as par}
     <p class="font-normal text-t-reg-lgt dark:text-t-reg-drk"><TextComp text={par} /></p>
   {/each}
@@ -149,10 +149,3 @@
     </div>
   </svelte:fragment>
 </Modal>
-
-<style>
-  .icon {
-    width: 64px;
-    height: 64px;
-  }
-</style>

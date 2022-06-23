@@ -22,7 +22,7 @@
         {title}
         {#if showCloseButton}
         <button
-          class="p-2 bg-p-pri-lgt hover:bg-p-pri-lgt-hgl dark:bg-p-pri-drk dark:hover:bg-p-pri-drk-hgl rounded-full ml-4 transition-all duration-500"
+          class="p-2 bg-p-pri-lgt hover:bg-p-pri-lgt-hgl dark:bg-p-pri-drk dark:hover:bg-p-pri-drk-hgl rounded-full ml-4 transition-all duration-300"
           on:click={() => dispatch('close')}
         >
           <svg

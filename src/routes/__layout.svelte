@@ -13,6 +13,7 @@
     });
 
 
+    // @ts-ignore
 	const enableManifest = (!dev && browser) || (dev && browser && enableSwDev === 'true')
 
     
@@ -24,9 +25,9 @@
 </script>
 
 <svelte:head>
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content={darkMode ? "#312e81": "#e0e7ff"}>
-    <link rel="apple-touch-icon" href="dei.png">
+    <link rel="apple-touch-icon" href="/dei.png">
 </svelte:head>
 
 

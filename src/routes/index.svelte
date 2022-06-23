@@ -24,10 +24,12 @@
       class="col-span-4"
     >
       <Box>
-        <h5>Willkommen in der DEI LernApp Demo</h5>
-        <p>Diese Demo ist ein proof-of-concept Prototyp und stellt nicht die finale App dar.</p>
+        <h4>Willkommen in der DEI LernApp Demo</h4>
+        <p>Bitte klicken sie oben auf "Kurse", um die verfuegbaren Kurse zu sehen.</p>
+        <div id='h5p-container'></div>
       </Box>
     </div>
     <div class="col-span-1" />
   </div>
 </div>
+

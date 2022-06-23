@@ -40,6 +40,7 @@
     "dependencies": {
         "@skeleton-elements/svelte": "^2.0.0",
         "@sveltejs/adapter-static": "^1.0.0-next.34",
+        "h5p-standalone": "^3.5.1",
         "katex": "^0.16.0",
         "skeleton-elements": "^4.0.0",
         "svelte-icons": "^2.1.0"

@@ -30,10 +30,10 @@
 </script>
 
 <nav
-  class="flex items-center justify-between flex-wrap font-semibold dark:text-t-reg-drk text-t-reg-lgt dark:bg-p-acc-drk bg-p-acc p-3 navbar transition-all duration-300"
+  class="flex items-center justify-between flex-wrap font-semibold dark:text-t-reg-drk text-t-reg-lgt dark:bg-p-acc-drk bg-p-acc-lgt p-3 navbar transition-all duration-300"
 >
   <div class="flex items-center flex-shrink-0 mr-6 transition-all duration-300">
-    <img src="dei.png" alt="DEI" class="dei-logo" />
+    <img src="/dei.png" alt="DEI" class="dei-logo" />
     <span class="text-xl tracking-tight">LernApp</span><span
       on:click={toggleDarkMode}
       class="inline-block text-sm px-1 py-1 mx-4 rounded dark:hover:text-t-reg-drk-hgl hover:text-t-reg-drk-hglgl dmicon transition-all duration-300"
