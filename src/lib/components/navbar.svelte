@@ -3,18 +3,22 @@
   import FaSun from 'svelte-icons/fa/FaSun.svelte';
   import { onMount } from 'svelte';
   import { page } from '$app/stores';
-  import { darkmode } from '$lib/stores';
+  import { darkmode, routeUp } from '$lib/stores';
+
+  
 
   onMount(async () => {
     darkmode.subscribe((val) => {
       darkMode = val;
     });
+    routeUp.subscribe((val) => {
+      upRoute = val;
+    })
   });
-
-  $page.routeId;
 
   let isOpen: boolean = false;
   export let darkMode: boolean;
+  let upRoute: string;
 
   function toggleOpen() {
     isOpen = !isOpen;
@@ -30,10 +34,11 @@
 </script>
 
 <nav
-  class="flex items-center justify-between flex-wrap font-semibold dark:text-t-reg-drk text-t-reg-lgt dark:bg-p-acc-drk bg-p-acc-lgt p-3 navbar transition-all duration-300"
+  class="flex sticky top-0 items-center justify-between flex-wrap font-semibold dark:text-t-reg-drk text-t-reg-lgt dark:bg-p-acc-drk bg-p-acc-lgt p-3 navbar transition-all duration-300"
 >
   <div class="flex items-center flex-shrink-0 mr-6 transition-all duration-300">
-    <img src="/dei.png" alt="DEI" class="dei-logo" />
+    <!--<img src="/dei.png" alt="DEI" class="dei-logo" />-->
+    <a class="h-10 dark:hover:bg-p-pri-drk-hgl hover:bg-p-pri-lgt-hgl dark:bg-p-pri-drk bg-p-pri-lgt text-t-reg-lgt-hgl dark:text-t-reg-drk-hgl font-bold py-2 px-4 mr-4 rounded-full" href="{upRoute}">◀</a>
     <span class="text-xl tracking-tight">LernApp</span><span
       on:click={toggleDarkMode}
       class="inline-block text-sm px-1 py-1 mx-4 rounded dark:hover:text-t-reg-drk-hgl hover:text-t-reg-drk-hglgl dmicon transition-all duration-300"

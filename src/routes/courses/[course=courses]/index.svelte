@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { routeUp } from '$lib/stores';
     import { page } from '$app/stores';
     import Box from '$lib/components/box.svelte';
     
@@ -6,6 +7,8 @@
 
     const course = courses.find((c) => c.route === $page.params.course);
 
+
+  routeUp.update((val) => "/courses");
   </script>
   
   <svelte:head>
@@ -37,7 +40,7 @@
               <div class="col-span-1">
                 <a
                   href="/courses/{course?.route}/{lesson.route}"
-                  class="h-10 dark:hover:bg-p-acc-drk-hgl hover:bg-p-acc-lgt-hgl dark:bg-p-acc-drk bg-p-acc-lgt text-t-reg-lgt-hgl dark:text-t-reg-drk-hgl font-bold py-2 px-4 rounded-full ml-4"
+                  class="h-10 dark:hover:bg-p-acc-drk-hgl hover:bg-p-acc-lgt-hgl dark:bg-p-acc-drk bg-p-acc-lgt text-t-reg-lgt-hgl dark:text-t-reg-drk-hgl font-bold py-2 px-4 rounded-full ml-4 my-4"
                   >
                   ▶
               </a>

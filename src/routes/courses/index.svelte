@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { darkmode } from '$lib/stores';
+  import { darkmode, routeUp } from '$lib/stores';
   import { onMount } from 'svelte';
   import Box from '$lib/components/box.svelte';
   import SingleChoiceQuestionComponent from '$lib/components/questions/singlechoice.svelte';
@@ -38,6 +38,9 @@
       darkMode = val;
     });
   });
+
+
+  routeUp.update((val) => "/");
 </script>
 
 <svelte:head>

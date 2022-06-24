@@ -26,7 +26,7 @@
 
 <svelte:head>
     <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content={darkMode ? "#312e81": "#e0e7ff"}>
+    <meta name="theme-color" content={darkMode ? "#312e81": "#a5b4fc"}>
     <link rel="apple-touch-icon" href="/dei.png">
 </svelte:head>
 

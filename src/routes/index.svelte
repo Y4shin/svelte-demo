@@ -1,10 +1,12 @@
 <script lang="ts">
-  import { darkmode } from '$lib/stores';
+  import { darkmode, routeUp } from '$lib/stores';
   import { onMount } from 'svelte';
   import Box from '$lib/components/box.svelte';
   
   let darkMode: boolean;
   let fastAnimation: boolean = false;
+
+  routeUp.update((val) => "/")
 
   onMount(async () => {
     darkmode.subscribe((val) => {
@@ -32,4 +34,3 @@
     <div class="col-span-1" />
   </div>
 </div>
-

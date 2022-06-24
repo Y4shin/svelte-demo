@@ -1,19 +1,14 @@
 <script lang="ts">
+    import { routeUp } from '$lib/stores';
     import { page } from '$app/stores';
     import Box from '$lib/components/box.svelte';
     
     import { courses } from '$lib/study';
-import { onDestroy } from 'svelte';
-import { identity } from 'svelte/internal';
 
     const course = courses.find((c) => c.route === $page.params.course);
     const lesson = course?.lessons.find((l) => l.route === $page.params.lesson);
 
-    console.log(course)
-    console.log(lesson)
-    console.log($page.params.lesson)
-    console.log($page.params.slugs)
-
+    routeUp.update((val) => `/courses/${course?.route}`);
   </script>
   
   <svelte:head>
@@ -46,7 +41,7 @@ import { identity } from 'svelte/internal';
               <div class="col-span-1">
                 <a
                   href="/courses/{course?.route}/{lesson?.route}/{unit.route}"
-                  class="h-10 dark:hover:bg-p-acc-drk-hgl hover:bg-p-acc-lgt-hgl dark:bg-p-acc-drk bg-p-acc-lgt text-t-reg-lgt-hgl dark:text-t-reg-drk-hgl font-bold py-2 px-4 rounded-full ml-4"
+                  class="h-10 dark:hover:bg-p-acc-drk-hgl hover:bg-p-acc-lgt-hgl dark:bg-p-acc-drk bg-p-acc-lgt text-t-reg-lgt-hgl dark:text-t-reg-drk-hgl font-bold py-2 px-4 rounded-full ml-4 my-4"
                   >
                   ▶
               </a>

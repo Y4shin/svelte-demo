@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from '$app/stores';
+  import { routeUp } from '$lib/stores'
 
   import Box from '$lib/components/box.svelte';
   import { courses } from '$lib/study';
@@ -8,6 +9,8 @@
   const lesson = course?.lessons.find((l) => l.route === $page.params.lesson);
   const unit = lesson?.units.find((u) => u.route === $page.params.unit);
 
+
+  routeUp.update((val) => `/courses/${course?.route}/${lesson?.route}`);
 </script>
 
 <svelte:head>
@@ -24,7 +27,9 @@
         >
           {unit?.title}
         </h4>
-        {@html unit?.content}
+        <div class="h-fit">
+            {@html unit?.content}
+        </div>
       </Box>
     </div>
     <div class="col-span-1" />
