@@ -17,7 +17,7 @@
   });
 
   let isOpen: boolean = false;
-  export let darkMode: boolean;
+  let darkMode: boolean;
   let upRoute: string;
 
   function toggleOpen() {
@@ -65,16 +65,16 @@
       <a
         href="/"
         class="block mt-4 lg:inline-block lg:mt-0 {$page.routeId === ''
-          ? 'dark:text-t-reg-drk-hgl text-t-reg-drk-hglgl'
-          : 'dark:text-t-reg-drk dark:hover:text-t-reg-drk-hgl text-t-reg-lgt hover:text-t-reg-drk-hglgl'} mr-4 transition-all duration-300"
+          ? 'dark:text-t-reg-drk-hgl text-t-reg-drk-hgl'
+          : 'dark:text-t-reg-drk dark:hover:text-t-reg-drk-hgl text-t-reg-lgt hover:text-t-reg-drk-hgl'} mr-4 transition-all duration-300"
       >
         Startseite
       </a>
       <a
         href="/courses"
         class="block mt-4 lg:inline-block lg:mt-0 {$page.routeId === 'courses'
-          ? 'dark:text-t-reg-drk-hgl text-t-reg-drk-hglgl'
-          : 'dark:text-t-reg-drk dark:hover:text-t-reg-drk-hgl text-t-reg-lgt hover:text-t-reg-drk-hglgl'} mr-4 transition-all duration-300"
+          ? 'dark:text-t-reg-drk-hgl text-t-reg-drk-hgl'
+          : 'dark:text-t-reg-drk dark:hover:text-t-reg-drk-hgl text-t-reg-lgt hover:text-t-reg-drk-hgl'} mr-4 transition-all duration-300"
       >
         Kurse
       </a>
