@@ -2,9 +2,10 @@
   import Moon from 'svelte-icons/md/MdBrightness2.svelte'
   import Sun from 'svelte-icons/md/MdBrightness7.svelte'
   import Back from 'svelte-icons/md/MdChevronLeft.svelte'
+  import Reload from 'svelte-icons/md/MdLoop.svelte';
   import { onMount } from 'svelte';
   import { page } from '$app/stores';
-  import { darkmode, routeUp } from '$lib/stores';
+  import { darkmode, routeUp, reloadTrigger } from '$lib/stores';
 
   onMount(async () => {
     darkmode.subscribe((val) => {
@@ -30,7 +31,10 @@
   function darkModeSelect(light: string, dark: string): string {
     return darkMode ? dark : light;
   }
-  console.log($page.routeId)
+
+  function triggerReload() {
+    reloadTrigger.update((val) => !val);
+  }
 </script>
 
 <nav
@@ -38,9 +42,14 @@
 >
   <div class="col-span-1 row-span-1 place-self-start self-center">
     <a
-      class="w-10 h-10 align-middle inline-block dark:hover:text-t-reg-drk-hgl hover:text-t-reg-lgt-hgl transition-all duration-300"
+      class="mr-2 w-10 h-10 align-middle inline-block dark:hover:text-t-reg-drk-hgl hover:text-t-reg-lgt-hgl transition-all duration-300"
       href={upRoute}><Back/></a
+    ><button
+      class="ml-2 w-10 h-10 align-middle inline-block dark:hover:text-t-reg-drk-hgl hover:text-t-reg-lgt-hgl transition-all duration-300"
+      on:click={triggerReload}
     >
+    <Reload/>
+    </button>
   </div>
   <div class="col-span-1 row-span-1 place-self-center self-center">
     <img src="/dei.png" class="hidden h-10 w-10" alt="logo"/>

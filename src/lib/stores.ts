@@ -6,6 +6,7 @@ const darkModeInitial: boolean = browser ? ((window.localStorage.getItem('darkMo
 
 export const darkmode = writable(darkModeInitial);
 export const routeUp = writable("/");
+export const reloadTrigger = writable(false);
 
 darkmode.subscribe((val) => {
     if (browser) {
