@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Navbar from "$lib/components/navbar.svelte";
+    import Navbar from "$lib/components/navbar2.svelte";
     import { onMount } from "svelte";
     import { darkmode } from "$lib/stores";
     import "$lib/app.css";
@@ -31,5 +31,5 @@
 </svelte:head>
 
 
-<Navbar bind:darkMode/>
+<Navbar/>
 <slot/>

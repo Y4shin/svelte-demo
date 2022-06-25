@@ -1,6 +1,7 @@
 <script lang="ts">
   import { darkmode, routeUp } from '$lib/stores';
   import { onMount } from 'svelte';
+  import Next from 'svelte-icons/md/MdChevronRight.svelte';
   import Box from '$lib/components/box.svelte';
   import SingleChoiceQuestionComponent from '$lib/components/questions/singlechoice.svelte';
   import {
@@ -39,8 +40,7 @@
     });
   });
 
-
-  routeUp.update((val) => "/");
+  routeUp.update((val) => '/');
 </script>
 
 <svelte:head>
@@ -72,14 +72,14 @@
               <h5 class="text-xl mb-4">{course.name}</h5>
               <p>{course.description}</p>
             </div>
-              <div class="col-span-1">
-                <a
-                  href="/courses/{course.route}"
-                  class="h-10 dark:hover:bg-p-acc-drk-hgl hover:bg-p-acc-lgt-hgl dark:bg-p-acc-drk bg-p-acc-lgt text-t-reg-lgt-hgl dark:text-t-reg-drk-hgl font-bold py-2 px-4 rounded-full ml-4"
-                  >
-                  ▶
+            <div class="col-span-1 mt-6 md:mt-0">
+              <a
+                href="/courses/{course.route}"
+                class="w-10 h-10 align-middle inline-block bg-p-acc-lgt dark:bg-p-acc-drk hover:bg-p-acc-lgt-hgl dark:hover:bg-p-acc-drk-hgl rounded-full transition-all duration-300 md:ml-4"
+              >
+                <Next />
               </a>
-              </div>
+            </div>
           </div>
         </Box>
       {/each}

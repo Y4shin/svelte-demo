@@ -1,11 +1,20 @@
 import { build, files, version } from "$service-worker";
+import { courses } from "$lib/study";
 
 const worker = self as unknown as ServiceWorkerGlobalScope;
 const STATIC_CACHE_NAME = `cache${version}`;
 const APP_CACHE_NAME = `offline${version}`;
 
+
+
+
+// getting list of dynamically loaded sites
+const coursesRoutes = courses.map((c) => `/courses/${c.route}`);
+const lessonsRoutes = courses.flatMap((c) => c.lessons.map((l) => `/courses/${c.route}/${l.route}`));
+const unitsRoutes = courses.flatMap((c) => c.lessons.flatMap((l) => l.units.map((u) => `/courses/${c.route}/${l.route}/${u.route}`)));
+
 // hard-coded list of app routes we want to preemptively cache
-const routes = ["/", "/courses"];
+const routes = ["/", "/courses"].concat(coursesRoutes).concat(lessonsRoutes).concat(unitsRoutes);
 
 // hard-coded list of other assets necessary for page load outside our domain
 const customAssets: string[] = [];
