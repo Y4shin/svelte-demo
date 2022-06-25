@@ -34,7 +34,7 @@
         >
           {unit?.title}
         </h4>
-            <H5PEmbed classes={[]} width={Math.ceil(width * 0.95)} height={Math.ceil(height * 0.95)} content={unit.content} />
+            <H5PEmbed classes={[]} width={Math.ceil(width * 0.90)} height={Math.ceil(height * 0.90)} content={unit.content} />
 
       </Box>
     </div>
