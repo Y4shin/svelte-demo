@@ -6,12 +6,17 @@
   import { courses, type Course, type CourseLesson, type LessonUnit } from '$lib/study';
   import H5PEmbed from '$lib/components/h5pembed.svelte';
 
+  let width;
+  let height;
+
   const course: Course = courses.find((c) => c.route === $page.params.course);
   const lesson: CourseLesson = course?.lessons.find((l) => l.route === $page.params.lesson);
   const unit: LessonUnit = lesson?.units.find((u) => u.route === $page.params.unit);
 
   routeUp.update((val) => `/courses/${course?.route}/${lesson?.route}`);
 </script>
+
+<svelte:window bind:innerHeight={height} bind:innerWidth={width}/>
 
 <svelte:head>
   <title>DEI LernApp - Kurse</title>
@@ -29,9 +34,11 @@
         >
           {unit?.title}
         </h4>
-        <div class="object-fill">
-          <H5PEmbed content={unit.content} />
-        </div>
+        {#key width}
+            {#key height}
+            <H5PEmbed classes={[]} width={Math.ceil(width * 0.85)} height={Math.ceil(height * 0.85)} content={unit.content} />
+            {/key}
+        {/key}
       </Box>
     </div>
     <div class="col-span-1" />
