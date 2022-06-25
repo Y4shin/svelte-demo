@@ -45,6 +45,7 @@
         "katex": "^0.16.0",
         "skeleton-elements": "^4.0.0",
         "svelte-icons": "^2.1.0",
-        "svelte-media-query": "^1.1.2"
+        "svelte-media-query": "^1.1.2",
+        "vanilla-lazyload": "^17.8.2"
     }
 }
