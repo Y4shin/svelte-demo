@@ -16,7 +16,7 @@
   routeUp.update((val) => `/courses/${course?.route}/${lesson?.route}`);
 </script>
 
-<svelte:window bind:innerHeight={height} bind:innerWidth={width}/>
+<!--<svelte:window bind:innerHeight={height} bind:innerWidth={width}/>-->
 
 <svelte:head>
   <title>DEI LernApp - Kurse</title>
@@ -27,18 +27,15 @@
     class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 place-items-stretch items-stretch mb-8"
   >
     <div class="col-span-1" />
-    <div class="col-span-4 self-auto">
+    <div class="col-span-4" bind:offsetHeight={height} bind:offsetWidth={width}>
       <Box>
         <h4
           class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white transition-all duration-300"
         >
           {unit?.title}
         </h4>
-        {#key width}
-            {#key height}
-            <H5PEmbed classes={[]} width={Math.ceil(width * 0.85)} height={Math.ceil(height * 0.85)} content={unit.content} />
-            {/key}
-        {/key}
+            <H5PEmbed classes={[]} width={Math.ceil(width * 0.95)} height={Math.ceil(height * 0.95)} content={unit.content} />
+
       </Box>
     </div>
     <div class="col-span-1" />
