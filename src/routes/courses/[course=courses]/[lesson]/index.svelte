@@ -30,13 +30,13 @@
           Hier finden Sie die Aufgaben zu diesem Lernmodul.
         </p>
       </Box>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4 items-stretch auto-rows-max">
       {#each lesson.units as unit}
-      <div class="col-span-1">
-        <Box>
-          <div class="grid grid-cols-1 md:grid-cols-4 place-items-center">
+      <div class="col-span-1 flex flex-col">
+        <Box additionalClasses={['flex-1', 'flex', 'flex-col']}>
+          <div class="flex-1 grid grid-cols-1 md:grid-cols-4 place-items-center">
             <div class="col-span-3">
-              <h5 class="text-xl mt-4">{unit.title}</h5>
+              <h5 class="font-bold text-xl mb-2">{unit.title}</h5>
               {unit.description}
             </div>
               <div class="col-span-1 mt-6 md:mt-0">

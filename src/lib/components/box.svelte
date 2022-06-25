@@ -9,8 +9,9 @@ import Body from "./accordion/body.svelte";
     export let text: string = "t-reg-lgt";
     export let textDark: string = "t-reg-drk";
     export let padding: number = 4;
+    export let additionalClasses: string[] = [];
 </script>
 
-<div class="p-{padding} rounded-lg border border-{border} dark:border-{borderDark} shadow-md bg-{bg} dark:bg-{bgDark} text-{text} dark:text-{textDark} transition-all duration-300">
+<div class="p-{padding} rounded-lg border border-{border} dark:border-{borderDark} shadow-md bg-{bg} dark:bg-{bgDark} text-{text} dark:text-{textDark} {additionalClasses.join(' ')} transition-all duration-300">
     <slot/>
 </div>

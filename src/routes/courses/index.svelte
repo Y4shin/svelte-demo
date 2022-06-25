@@ -59,13 +59,9 @@
           Hier finden Sie eine Übersicht über alle Kurse, die in der Lernapp verfügbar sind.
         </p>
       </Box>
-    </div>
-    <div class="col-span-1" />
-  </div>
-  <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 lg:gap-8">
-    <div class="col-span-1" />
-    <div class="col-span-4">
       {#each courses as course}
+
+      <div class="my-4">
         <Box>
           <div class="grid grid-cols-1 md:grid-cols-4 place-items-center">
             <div class="col-span-3">
@@ -82,8 +78,10 @@
             </div>
           </div>
         </Box>
+      </div>
       {/each}
     </div>
     <div class="col-span-1" />
   </div>
+  
 </div>
