@@ -1,12 +1,37 @@
+<script lang="ts" context="module">
+  import { courses } from '$lib/study';
+  
+  /** @type {import('./__types/[course]').Load} */
+  export async function load({params}) {
+    
+
+    const course: Course | undefined = courses.find((c) => c.route === params.course);
+
+    if (course === undefined) {
+      return {
+        status: 404,
+        error: `Kurs mit id "${params.course}" existiert nicht.`
+      }
+    } else {
+      return {
+        status: 200,
+        props: {
+          course
+        }
+      }
+    }
+  }
+</script>
+
 <script lang="ts">
     import { routeUp } from '$lib/stores';
     import { page } from '$app/stores';
     import Box from '$lib/components/box.svelte';
   import Next from 'svelte-icons/md/MdChevronRight.svelte';
     
-    import { courses } from '$lib/study';
+    import type { Course } from '$lib/study';
 
-    const course = courses.find((c) => c.route === $page.params.course);
+    export let course: Course;
 
 
   routeUp.update((val) => "/courses");

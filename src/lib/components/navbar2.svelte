@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Moon from 'svelte-icons/md/MdBrightness2.svelte'
-  import Sun from 'svelte-icons/md/MdBrightness7.svelte'
-  import Back from 'svelte-icons/md/MdChevronLeft.svelte'
+  import Moon from 'svelte-icons/md/MdBrightness2.svelte';
+  import Sun from 'svelte-icons/md/MdBrightness7.svelte';
+  import Back from 'svelte-icons/md/MdChevronLeft.svelte';
   import Reload from 'svelte-icons/md/MdLoop.svelte';
   import { onMount } from 'svelte';
   import { page } from '$app/stores';
@@ -18,6 +18,7 @@
 
   let isOpen: boolean = false;
   export let darkMode: boolean;
+  export let showRefresh: boolean = false;
   let upRoute: string;
 
   function toggleOpen() {
@@ -43,23 +44,26 @@
   <div class="col-span-1 row-span-1 place-self-start self-center">
     <a
       class="mr-2 w-10 h-10 align-middle inline-block dark:hover:text-t-reg-drk-hgl hover:text-t-reg-lgt-hgl transition-all duration-300"
-      href={upRoute}><Back/></a
-    ><button
-      class="ml-2 w-10 h-10 align-middle inline-block dark:hover:text-t-reg-drk-hgl hover:text-t-reg-lgt-hgl transition-all duration-300"
-      on:click={triggerReload}
+      href={upRoute}><Back /></a
     >
-    <Reload/>
-    </button>
+    {#if showRefresh}
+      <button
+        class="ml-2 w-10 h-10 align-middle inline-block dark:hover:text-t-reg-drk-hgl hover:text-t-reg-lgt-hgl transition-all duration-300"
+        on:click={triggerReload}
+      >
+        <Reload />
+      </button>
+    {/if}
   </div>
   <div class="col-span-1 row-span-1 place-self-center self-center">
-    <img src="/dei.png" class="hidden h-10 w-10" alt="logo"/>
+    <img src="/dei.png" class="hidden h-10 w-10" alt="logo" />
   </div>
   <div class="col-span-1 row-span-1 place-self-end self-center">
     <div class="hidden md:block px-2">
       <span
         on:click={toggleDarkMode}
         class="mr-2 w-10 h-10 align-middle inline-block dark:hover:text-t-reg-drk-hgl hover:text-t-reg-lgt-hgl transition-all duration-300"
-        >{#if darkMode}<Sun/>{:else}<Moon/>{/if}</span
+        >{#if darkMode}<Sun />{:else}<Moon />{/if}</span
       >
       <a
         href="/"
@@ -69,8 +73,8 @@
         >Startseite</a
       >
       <a
-        href="{$page.routeId?.substring(0,7) === 'courses' ? '#' : '/courses'}"
-        class="ml-2  align-middle {$page.routeId?.substring(0,7) === 'courses'
+        href={$page.routeId?.substring(0, 7) === 'courses' ? '#' : '/courses'}
+        class="ml-2  align-middle {$page.routeId?.substring(0, 7) === 'courses'
           ? 'dark:text-t-reg-drk-hgl text-t-reg-drk-hgl'
           : 'dark:text-t-reg-drk dark:hover:text-t-reg-drk-hgl text-t-reg-lgt hover:text-t-reg-drk-hgl'} transition-all duration-300"
         >Kurse</a
@@ -80,43 +84,42 @@
       <span
         on:click={toggleDarkMode}
         class="mr-4 w-10 h-10 align-middle inline-block dark:hover:text-t-reg-drk-hgl hover:text-t-reg-lgt-hgl transition-all duration-300"
-        >{#if darkMode}<Sun/>{:else}<Moon/>{/if}</span
+        >{#if darkMode}<Sun />{:else}<Moon />{/if}</span
       >
       <button
-      class="ml-4 rounded dark:hover:text-t-reg-drk-hgl hover:text-t-reg-drk-hgl dark:bg-p-acc-drk transition-all duration-300"
-      on:click={toggleOpen}
-    >
-      <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-        ><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" /></svg
+        class="ml-4 rounded dark:hover:text-t-reg-drk-hgl hover:text-t-reg-drk-hgl dark:bg-p-acc-drk transition-all duration-300"
+        on:click={toggleOpen}
       >
-    </button>
+        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
+          ><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" /></svg
+        >
+      </button>
     </div>
   </div>
   <div class="{isOpen ? 'block' : 'hidden'} md:hidden col-span-3">
     <div class="grid grid-cols-1 place-items-end mx-2">
       <div>
         <a
-        on:click={toggleOpen}
-        href="/"
-        class="align-middle {$page.routeId === ''
-          ? 'dark:text-t-reg-drk-hgl text-t-reg-drk-hgl'
-          : 'dark:text-t-reg-drk dark:hover:text-t-reg-drk-hgl text-t-reg-lgt hover:text-t-reg-drk-hgl'} transition-all duration-300"
-        >Startseite</a
-      >
+          on:click={toggleOpen}
+          href="/"
+          class="align-middle {$page.routeId === ''
+            ? 'dark:text-t-reg-drk-hgl text-t-reg-drk-hgl'
+            : 'dark:text-t-reg-drk dark:hover:text-t-reg-drk-hgl text-t-reg-lgt hover:text-t-reg-drk-hgl'} transition-all duration-300"
+          >Startseite</a
+        >
       </div>
     </div>
     <div class="grid grid-cols-1 place-items-end m-2">
       <div>
         <a
-        on:click={toggleOpen}
-        href="{$page.routeId?.substring(0,7) === 'courses' ? '#' : '/courses'}"
-        class="align-middle {$page.routeId?.substring(0,7) === 'courses'
-          ? 'dark:text-t-reg-drk-hgl text-t-reg-drk-hgl'
-          : 'dark:text-t-reg-drk dark:hover:text-t-reg-drk-hgl text-t-reg-lgt hover:text-t-reg-drk-hgl'} transition-all duration-300"
-        >Kurse</a
-      >
+          on:click={toggleOpen}
+          href={$page.routeId?.substring(0, 7) === 'courses' ? '#' : '/courses'}
+          class="align-middle {$page.routeId?.substring(0, 7) === 'courses'
+            ? 'dark:text-t-reg-drk-hgl text-t-reg-drk-hgl'
+            : 'dark:text-t-reg-drk dark:hover:text-t-reg-drk-hgl text-t-reg-lgt hover:text-t-reg-drk-hgl'} transition-all duration-300"
+          >Kurse</a
+        >
       </div>
     </div>
   </div>
-  
 </nav>

@@ -6,7 +6,7 @@
   let darkMode: boolean;
   let fastAnimation: boolean = false;
 
-  routeUp.update((val) => "/")
+  routeUp.update((val) => "/");
 
   onMount(async () => {
     darkmode.subscribe((val) => {

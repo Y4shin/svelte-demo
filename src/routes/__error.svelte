@@ -21,8 +21,8 @@
       <div
         class="col-span-4"
       >
-        <Box>
-          <h4>Fehler: {status}</h4>
+        <Box >
+          <h4 class="text-t-fal-lgt dark:text-t-fal-drk font-extrabold text-4xl mb-6">Fehler: {status}</h4>
           <p>{msg}</p>
         </Box>
       </div>

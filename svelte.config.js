@@ -15,7 +15,8 @@ const config = {
         },
         vite: {
             plugins: [],
-            ssr: { noExternal: ['@popperjs/core'] }
+            ssr: { noExternal: ['@popperjs/core'] },
+
         },
         adapter: adapter({
             // default options are shown

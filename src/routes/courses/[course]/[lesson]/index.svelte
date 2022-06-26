@@ -1,13 +1,44 @@
+<script lang="ts" context="module">
+  import { courses } from '$lib/study';
+  
+  /** @type {import('./__types/[course]/[lesson]').Load} */
+  export async function load({params}) {
+    
+
+    const course: Course | undefined = courses.find((c) => c.route === params.course);
+    const lesson: CourseLesson | undefined = course?.lessons.find((l) => l.route === params.lesson);
+
+    if (course === undefined) {
+      return {
+        status: 404,
+        error: `Kurs mit id "${params.course}" existiert nicht.`
+      }
+    } else if (lesson === undefined) {
+      return {
+        status: 404,
+        error: `Lektion mit id ${params.lesson} existiert nicht in Kurs "${course?.name}".`
+      }
+    } else {
+      return {
+        status: 200,
+        props: {
+          course, lesson
+        }
+      }
+    }
+  }
+</script>
+
 <script lang="ts">
     import { routeUp } from '$lib/stores';
     import { page } from '$app/stores';
     import Box from '$lib/components/box.svelte';
   import Next from 'svelte-icons/md/MdChevronRight.svelte';
     
-    import { courses } from '$lib/study';
+    import type { Course, CourseLesson } from '$lib/study';
 
-    const course = courses.find((c) => c.route === $page.params.course);
-    const lesson = course?.lessons.find((l) => l.route === $page.params.lesson);
+    export let course: Course;
+    export let lesson: CourseLesson;
 
     routeUp.update((val) => `/courses/${course?.route}`);
   </script>
