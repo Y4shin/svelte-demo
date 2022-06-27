@@ -1,5 +1,4 @@
 <script lang="ts">
-import Body from "./accordion/body.svelte";
 
 
     export let bg: string = "p-pri-lgt";

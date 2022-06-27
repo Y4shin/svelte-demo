@@ -5,7 +5,7 @@
   import Reload from 'svelte-icons/md/MdLoop.svelte';
   import { onMount } from 'svelte';
   import { page } from '$app/stores';
-  import { darkmode, routeUp, reloadTrigger } from '$lib/stores';
+  import { darkmode, routeUp, reloadTrigger, uid } from '$lib/stores';
 
   onMount(async () => {
     darkmode.subscribe((val) => {
@@ -14,9 +14,13 @@
     routeUp.subscribe((val) => {
       upRoute = val;
     });
+    uid.subscribe((val) => {
+      uidStr = val;
+    })
   });
 
   let isOpen: boolean = false;
+  let uidStr: string;
   export let darkMode: boolean;
   export let showRefresh: boolean = false;
   let upRoute: string;
@@ -56,7 +60,7 @@
     {/if}
   </div>
   <div class="col-span-1 row-span-1 place-self-center self-center">
-    <img src="/dei.png" class="hidden h-10 w-10" alt="logo" />
+    {#if uidStr !== "0000"}<p>UmfrageID: {uidStr}</p>{/if}
   </div>
   <div class="col-span-1 row-span-1 place-self-end self-center">
     <div class="hidden md:block px-2">
