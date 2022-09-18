@@ -1,140 +1,104 @@
-const build = [
-  "/_app/immutable/start-59f7dc64.js",
-  "/_app/immutable/pages/__layout.svelte-671ed3aa.js",
-  "/_app/immutable/assets/pages/__layout.svelte-04331eaf.css",
-  "/_app/immutable/pages/__error.svelte-08a5fd12.js",
-  "/_app/immutable/pages/courses/_course_/_lesson_/_unit_/index.svelte-4251d036.js",
-  "/_app/immutable/pages/courses/_course_/_lesson_/index.svelte-dabf3178.js",
-  "/_app/immutable/pages/courses/_course_/index.svelte-8eb8f343.js",
-  "/_app/immutable/pages/courses/index.svelte-16664bce.js",
-  "/_app/immutable/pages/index.svelte-9b988bf3.js",
-  "/_app/immutable/chunks/index-e6526577.js",
-  "/_app/immutable/chunks/index-d453eed2.js",
-  "/_app/immutable/chunks/study-18a6761e.js",
-  "/_app/immutable/chunks/stores-b9983159.js",
-  "/_app/immutable/chunks/IconBase-bf2e29b1.js",
-  "/_app/immutable/assets/IconBase-89f34d78.css",
-  "/_app/immutable/chunks/box-486b9bbe.js",
-  "/_app/immutable/chunks/MdChevronRight-308e1b78.js"
-];
-const files = [
-  "/dei.png",
+const o = [
+  "/_app/immutable/start-0470c6d1.js",
+  "/_app/immutable/components/pages/_layout.svelte-61194cd1.js",
+  "/_app/immutable/assets/+layout-eba90a38.css",
+  "/_app/immutable/assets/IconBase-6bf551a2.css",
+  "/_app/immutable/components/pages/_error.svelte-9c314a62.js",
+  "/_app/immutable/components/pages/_page.svelte-7e1f3ea7.js",
+  "/_app/immutable/components/pages/bundles/_page.svelte-2f3c7007.js",
+  "/_app/immutable/components/pages/course/_page.svelte-171da819.js",
+  "/_app/immutable/components/pages/course/_courseslug_/_page.svelte-853473dc.js",
+  "/_app/immutable/components/pages/course/_courseslug_/feedback/_page.svelte-a01b9726.js",
+  "/_app/immutable/components/pages/course/_courseslug_/lesson/_lessonslug_/_page.svelte-fef34c51.js",
+  "/_app/immutable/components/pages/course/_courseslug_/lesson/_lessonslug_/task/_page.svelte-a70f8cda.js",
+  "/_app/immutable/components/pages/settings/_page.svelte-d53d56fc.js",
+  "/_app/immutable/assets/+page-1ec7840a.css",
+  "/_app/immutable/modules/pages/course/_courseslug_/_page.ts-2726eeed.js",
+  "/_app/immutable/modules/pages/course/_courseslug_/feedback/_page.ts-78f09518.js",
+  "/_app/immutable/modules/pages/course/_courseslug_/lesson/_page.ts-ced84b25.js",
+  "/_app/immutable/modules/pages/course/_courseslug_/lesson/_lessonslug_/_page.ts-940b25fe.js",
+  "/_app/immutable/modules/pages/course/_courseslug_/lesson/_lessonslug_/task/_page.ts-3c31742c.js",
+  "/_app/immutable/chunks/singletons-f0febded.js",
+  "/_app/immutable/chunks/index-e0c3bc23.js",
+  "/_app/immutable/chunks/index-297b380d.js",
+  "/_app/immutable/chunks/fetchDisplayData-17482217.js",
+  "/_app/immutable/chunks/stores-fc531b9e.js",
+  "/_app/immutable/chunks/settingsStores-ddf53d63.js",
+  "/_app/immutable/chunks/index-ceed3e71.js",
+  "/_app/immutable/chunks/MediaQuery-f7237b28.js",
+  "/_app/immutable/chunks/db-6dba99b9.js",
+  "/_app/immutable/chunks/IconBase-a7e75a12.js",
+  "/_app/immutable/chunks/notification-6b496d13.js",
+  "/_app/immutable/chunks/stores-47ddb097.js",
+  "/_app/immutable/chunks/errorpage-d41fb4bf.js",
+  "/_app/immutable/chunks/sidemargincontainer-3e06a851.js",
+  "/_app/immutable/chunks/dndmathfraction.svelte_svelte_type_style_lang-90be0157.js",
+  "/_app/immutable/assets/dndmathfraction-b61b89bf.css",
+  "/_app/immutable/chunks/modal-01a6fc60.js",
+  "/_app/immutable/chunks/badge-326699bd.js",
+  "/_app/immutable/chunks/next-79a9414b.js",
+  "/_app/immutable/chunks/IoIosWarning-fa21cdef.js",
+  "/_app/immutable/chunks/_page-d47c09e7.js",
+  "/_app/immutable/chunks/_page-6568bec4.js",
+  "/_app/immutable/chunks/_page-b9f42b6f.js",
+  "/_app/immutable/chunks/_page-573a8806.js",
+  "/_app/immutable/chunks/_page-53466d4d.js",
+  "/_app/immutable/chunks/0-80c1a126.js",
+  "/_app/immutable/chunks/1-46f6e859.js",
+  "/_app/immutable/chunks/2-ec214572.js",
+  "/_app/immutable/chunks/3-ffbc52ea.js",
+  "/_app/immutable/chunks/4-e760617c.js",
+  "/_app/immutable/chunks/5-cbceff53.js",
+  "/_app/immutable/chunks/6-b348d972.js",
+  "/_app/immutable/chunks/7-0b28f1d6.js",
+  "/_app/immutable/chunks/8-48da1860.js",
+  "/_app/immutable/chunks/9-d165b098.js",
+  "/_app/immutable/chunks/10-3914c8d7.js"
+], i = [
   "/favicon.png",
+  "/logo.png",
   "/manifest.json",
-  "/maskable_icon_x128.png",
-  "/maskable_icon_x192.png",
-  "/maskable_icon_x384.png",
-  "/maskable_icon_x48.png",
-  "/maskable_icon_x512.png",
-  "/maskable_icon_x72.png",
-  "/maskable_icon_x96.png"
-];
-const version = "1658747253731";
-class H5PContent {
-  constructor(src, frameborder, allowfullscreen, allow, title) {
-    this.src = src;
-    this.frameborder = frameborder;
-    this.allowfullscreen = allowfullscreen;
-    this.allow = allow;
-    this.title = title;
-  }
-}
-class LessonUnit {
-  constructor(route, title, description, content) {
-    this.route = route;
-    this.title = title;
-    this.description = description;
-    this.content = content;
-  }
-}
-class CourseLesson {
-  constructor(route, title, description, units) {
-    this.route = route;
-    this.title = title;
-    this.description = description;
-    this.units = units;
-  }
-}
-class Course {
-  constructor(route, name, description, lessons) {
-    this.name = name;
-    this.description = description;
-    this.route = route;
-    this.lessons = lessons;
-  }
-}
-const courses = [
-  new Course("study", "Studie", "Dies ist der Kurs f\xFCr die Studie.", [
-    new CourseLesson("1", "Elementare Rechentechniken", "In dieser Lektion kannst du dein K\xF6nnen \xFCber Elementare Rechentechniken pr\xFCfen.", [
-      new LessonUnit("1", "Klammerrechnung", "Diese Lerneinheit befasst sich mit elementaren Termumformungen. Hier wird sich auf Klammerumformungen beschr\xE4nkt.", new H5PContent("https://h5p.org/h5p/embed/1275587", "0", "allowfullscreen", "geolocation *; microphone *; camera *; midi *; encrypted-media *", "Klammerumformungen")),
-      new LessonUnit("2", "Bruchrechnung", "Diese Lerneinheit erweitert die Klammerrechnung um die Bruchrechnung und wie Bruchterme umgeformt werden k\xF6nnen.", new H5PContent("https://h5p.org/h5p/embed/1275717", "0", "allowfullscreen", "geolocation *; microphone *; camera *; midi *; encrypted-media *", "Bruchrechnung")),
-      new LessonUnit("3", "Binomische Formeln", "Diese Lerneinheit erweitert die Bruch- und Klammerrechnung um die Binomischen Formelun und wie diese in beide Richtungen angewendet werden.", new H5PContent("https://h5p.org/h5p/embed/1275718", "0", "allowfullscreen", "geolocation *; microphone *; camera *; midi *; encrypted-media *", "Binomische Formeln")),
-      new LessonUnit("4", "Polynomdivision", "Diese Lerneinheit befasst sich mit der Polynomdivision, der \xC4hnlichkeit zur schriftlichen Division und wie Polynomdivision funktioniert.", new H5PContent("https://h5p.org/h5p/embed/1275728", "0", "allowfullscreen", "geolocation *; microphone *; camera *; midi *; encrypted-media *", "Polynomdivision")),
-      new LessonUnit("5", "Exponentialrechnung", "Diese Lerneinheit befasst sich mit der Exponentialrechnung, sowie der Wurzel- und Logarithmusrechnung. Hierbei wird auch auf die Umformungsregeln der Exponential-, Wurzel- und Logarithmusrechnung eingegangen.", new H5PContent("https://h5p.org/h5p/embed/1275749", "0", "allowfullscreen", "geolocation *; microphone *; camera *; midi *; encrypted-media *", "Exponentialrechnung")),
-      new LessonUnit("6", "(Un-)Gleichungen", "Diese Lerneinheit befasst sich mit Gleichungen und Ungleichungen und wie diese umgeformt werden k\xF6nnen.", new H5PContent("https://h5p.org/h5p/embed/1276504", "0", "allowfullscreen", "geolocation *; microphone *; camera *; midi *; encrypted-media *", "(Un-)Gleichungen"))
-    ])
-  ])
-];
-const worker = self;
-const STATIC_CACHE_NAME = `cache${version}`;
-const APP_CACHE_NAME = `offline${version}`;
-const coursesRoutes = courses.map((c) => `/courses/${c.route}`);
-const lessonsRoutes = courses.flatMap((c) => c.lessons.map((l) => `/courses/${c.route}/${l.route}`));
-const unitsRoutes = courses.flatMap((c) => c.lessons.flatMap((l) => l.units.map((u) => `/courses/${c.route}/${l.route}/${u.route}`)));
-const routes = ["/", "/courses"].concat(coursesRoutes).concat(lessonsRoutes).concat(unitsRoutes);
-const customAssets = [];
-const addDomain = (assets) => assets.map((f) => self.location.origin + f);
-const ourAssets = addDomain([
-  ...files.filter((f) => !/\/icons\/(apple.*?|original.png)/.test(f)),
-  ...build,
-  ...routes
-]);
-const toCache = [...ourAssets, ...customAssets];
-const staticAssets = new Set(toCache);
-worker.addEventListener("install", (event) => {
-  event.waitUntil(caches.open(STATIC_CACHE_NAME).then((cache) => {
-    return cache.addAll(toCache);
-  }).then(() => {
-    worker.skipWaiting();
-  }));
+  "/maskable_x128.png",
+  "/maskable_x192.png",
+  "/maskable_x384.png",
+  "/maskable_x48.png",
+  "/maskable_x512.png",
+  "/maskable_x72.png",
+  "/maskable_x96.png"
+], n = "1663520087187", t = self, u = `cache${n}`, m = o.concat(i), _ = new Set(m);
+t.addEventListener("install", (s) => {
+  s.waitUntil(
+    caches.open(u).then((e) => e.addAll(m)).then(() => {
+      t.skipWaiting();
+    })
+  );
 });
-worker.addEventListener("activate", (event) => {
-  event.waitUntil(caches.keys().then(async (keys) => {
-    for (const key of keys) {
-      if (key !== STATIC_CACHE_NAME && key !== APP_CACHE_NAME) {
-        await caches.delete(key);
-      }
-    }
-    worker.clients.claim();
-  }));
+t.addEventListener("activate", (s) => {
+  s.waitUntil(
+    caches.keys().then(async (e) => {
+      for (const a of e)
+        a !== u && await caches.delete(a);
+      t.clients.claim();
+    })
+  );
 });
-async function fetchAndCache(request) {
-  const cache = await caches.open(APP_CACHE_NAME);
+async function b(s) {
+  const e = await caches.open(`offline${n}`);
   try {
-    const response = await fetch(request);
-    cache.put(request, response.clone());
-    return response;
-  } catch (err) {
-    const response = await cache.match(request);
-    if (response) {
-      return response;
-    }
-    throw err;
+    const a = await fetch(s);
+    return e.put(s, a.clone()), a;
+  } catch (a) {
+    const p = await e.match(s);
+    if (p)
+      return p;
+    throw a;
   }
 }
-worker.addEventListener("fetch", (event) => {
-  if (event.request.method !== "GET" || event.request.headers.has("range")) {
+t.addEventListener("fetch", (s) => {
+  if (s.request.method !== "GET" || s.request.headers.has("range"))
     return;
-  }
-  const url = new URL(event.request.url);
-  const isHttp = url.protocol.startsWith("http");
-  const isDevServerRequest = url.hostname === self.location.hostname && url.port !== self.location.port;
-  const isStaticAsset = staticAssets.has(url.href);
-  const skipBecauseUncached = event.request.cache === "only-if-cached" && !isStaticAsset;
-  if (isHttp && !isDevServerRequest && !skipBecauseUncached) {
-    event.respondWith((async () => {
-      const cachedAsset = isStaticAsset && await caches.match(event.request);
-      return cachedAsset || fetchAndCache(event.request);
-    })());
-  }
+  const e = new URL(s.request.url), a = e.protocol.startsWith("http"), p = e.hostname === self.location.hostname && e.port !== self.location.port, c = e.host === self.location.host && _.has(e.pathname), l = s.request.cache === "only-if-cached" && !c;
+  a && !p && !l && s.respondWith(
+    (async () => c && await caches.match(s.request) || b(s.request))()
+  );
 });

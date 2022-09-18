@@ -1,1 +1,0 @@
-import{w as e}from"./index-d453eed2.js";const t=!1;var a;const r=((a=window.localStorage.getItem("darkMode"))!=null?a:t)==="true",s=e(r),l=e("/"),c=e(!1),i=e("0000");s.subscribe(o=>{window.localStorage.setItem("darkMode",o?"true":"false")});export{c as a,s as d,l as r,i as u};

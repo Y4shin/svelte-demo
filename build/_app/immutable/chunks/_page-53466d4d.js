@@ -1,0 +1,1 @@
+function o({params:e}){return{courseslug:e.courseslug,lessonslug:e.lessonslug}}const l=Object.freeze(Object.defineProperty({__proto__:null,load:o},Symbol.toStringTag,{value:"Module"}));export{l as _,o as l};

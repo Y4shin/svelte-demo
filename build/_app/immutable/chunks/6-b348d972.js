@@ -1,0 +1,1 @@
+import{_ as m}from"./_page-6568bec4.js";import{default as a}from"../components/pages/course/_courseslug_/feedback/_page.svelte-a01b9726.js";import"./index-e0c3bc23.js";import"./stores-fc531b9e.js";export{a as component,m as shared};
