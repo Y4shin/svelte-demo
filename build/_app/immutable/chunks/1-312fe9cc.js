@@ -1,0 +1,1 @@
+import{default as c}from"../components/pages/_error.svelte-b3027b42.js";import"./index-e0c3bc23.js";import"./stores-bff6bc57.js";import"./singletons-c849329b.js";import"./stores-fc531b9e.js";import"./errorpage-d41fb4bf.js";import"./sidemargincontainer-3e06a851.js";import"./IconBase-a7e75a12.js";/* empty css                                               */export{c as component};
